@@ -2,6 +2,8 @@
 
 Static company site for [celarislabs.org](https://celarislabs.org).
 
+The partnerships form posts to `hello@celarislabs.org` via FormSubmit. The first submission sends a confirmation email to that inbox.
+
 ## Local
 
 Open `index.html` in a browser, or serve the folder:
