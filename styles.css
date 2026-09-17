@@ -359,6 +359,10 @@ footer {
   border-top: 1px solid var(--line);
 }
 
+footer p + p {
+  margin-top: 6px;
+}
+
 @media (max-width: 800px) {
   .cards,
   .split,
