@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://celarislabs.org/sitemap.xml
+Sitemap: https://celarislabs.ai/sitemap.xml

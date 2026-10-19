@@ -176,6 +176,11 @@ h2 {
   gap: 18px;
 }
 
+.cards.founders {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 540px;
+}
+
 .card {
   background: var(--panel);
   border: 1px solid var(--line);
