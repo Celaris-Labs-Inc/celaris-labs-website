@@ -1,0 +1,18 @@
+{
+  "name": "celaris-labs-website",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-22",
+  "routes": [{ "pattern": "celarislabs.ai", "custom_domain": true }],
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
+  },
+  "vars": {
+    "SUPABASE_URL": "https://hwcbqzpuuoojffxkennp.supabase.co",
+    "SUPABASE_PUBLISHABLE_KEY": "sb_publishable_F6sQgA2XSnARcRmgge8iHQ_JX4mRV91",
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAFhEn7WITwrVXlZv"
+  }
+}

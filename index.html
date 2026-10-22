@@ -147,16 +147,8 @@
               like to chat.
             </p>
           </div>
-          <form
-            class="partner-form"
-            action="https://formsubmit.co/hello@celarislabs.ai"
-            method="POST"
-          >
-            <input type="hidden" name="_subject" value="Partnership — Celaris Labs" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="true" />
-            <input type="hidden" name="_next" id="form-next" value="https://celarislabs.ai/thanks.html" />
-            <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+          <form class="partner-form" action="/api/partnerships" method="POST">
+            <input class="honey" type="text" name="website" tabindex="-1" autocomplete="off" />
 
             <label>
               Full name
@@ -178,7 +170,11 @@
               How we might work together
               <textarea name="message" rows="5" required placeholder="A short note on what you’re building and why you’d like to talk."></textarea>
             </label>
+            <div class="full turnstile-wrap">
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAAFhEn7WITwrVXlZv"></div>
+            </div>
             <button type="submit">Send</button>
+            <p class="form-error" hidden></p>
             <p class="form-note">You’ll complete a short captcha before this is sent.</p>
           </form>
         </div>
@@ -197,8 +193,55 @@
       <p>2261 Market Street, San Francisco, CA 94114</p>
       <p>&copy; 2026 Celaris Labs, Inc.</p>
     </footer>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script>
-      document.getElementById("form-next").value = location.origin + "/thanks.html";
+      const form = document.querySelector(".partner-form");
+      const errorEl = form.querySelector(".form-error");
+      const button = form.querySelector("button[type='submit']");
+      const reasons = {
+        "captcha-required": "Tick the captcha, then send again.",
+        "captcha-failed": "The captcha expired. Tick it again and resend.",
+        "invalid-name": "Add your name.",
+        "invalid-email": "Use a valid email address.",
+        "invalid-message": "Add a short note.",
+        upstream: "Couldn’t send just then. Try again in a moment.",
+      };
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        errorEl.hidden = true;
+        button.disabled = true;
+        const data = new FormData(form);
+        const payload = {
+          name: data.get("name"),
+          email: data.get("email"),
+          company: data.get("company"),
+          role: data.get("role"),
+          message: data.get("message"),
+          website: data.get("website"),
+          captchaToken: data.get("cf-turnstile-response"),
+        };
+        try {
+          const response = await fetch("/api/partnerships", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          const body = await response.json().catch(() => ({}));
+          if (response.ok && body.ok) {
+            location.href = "/thanks.html";
+            return;
+          }
+          errorEl.textContent = reasons[body.reason] || "Couldn’t send just then. Try again in a moment.";
+          errorEl.hidden = false;
+          if (window.turnstile) window.turnstile.reset();
+        } catch {
+          errorEl.textContent = reasons.upstream;
+          errorEl.hidden = false;
+        } finally {
+          button.disabled = false;
+        }
+      });
     </script>
   </body>
 </html>

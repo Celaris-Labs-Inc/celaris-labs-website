@@ -1,0 +1,12 @@
+.git
+.gitignore
+.assetsignore
+.DS_Store
+.wrangler
+node_modules
+*.pdf
+Screenshot*
+board_consent*
+README.md
+worker.js
+wrangler.jsonc
