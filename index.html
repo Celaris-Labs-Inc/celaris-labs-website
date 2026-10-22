@@ -140,10 +140,11 @@
         <div class="wrap split">
           <div>
             <p class="eyebrow">Partnerships</p>
-            <h2>Tour guides, we’d like to hear from you</h2>
+            <h2>Working on agentic products in travel? Let’s talk.</h2>
             <p class="lede left">
-              We are always looking for interesting partners. If you are a tour guide
-              based in any part of the world, just fill the form and we will reach out.
+              We’re building agentic software for travel and are open to partnerships
+              with platforms, operators and fellow builders. Get in touch if you’d
+              like to chat.
             </p>
           </div>
           <form
@@ -151,9 +152,9 @@
             action="https://formsubmit.co/hello@celarislabs.ai"
             method="POST"
           >
-            <input type="hidden" name="_subject" value="Tour guide partnership — Celaris Labs" />
+            <input type="hidden" name="_subject" value="Partnership — Celaris Labs" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_captcha" value="true" />
             <input type="hidden" name="_next" id="form-next" value="https://celarislabs.ai/thanks.html" />
             <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
 
@@ -166,18 +167,19 @@
               <input type="email" name="email" required autocomplete="email" />
             </label>
             <label>
-              City / country
-              <input type="text" name="location" required placeholder="e.g. Chiang Mai, Thailand" />
+              Company or site
+              <input type="text" name="company" placeholder="Optional" />
             </label>
             <label>
-              WhatsApp or phone
-              <input type="tel" name="phone" autocomplete="tel" />
+              Role
+              <input type="text" name="role" placeholder="e.g. operator, platform, builder" />
             </label>
             <label class="full">
-              Destinations and what you offer
-              <textarea name="message" rows="5" required placeholder="Where you guide, languages, and the kind of trips you run."></textarea>
+              How we might work together
+              <textarea name="message" rows="5" required placeholder="A short note on what you’re building and why you’d like to talk."></textarea>
             </label>
             <button type="submit">Send</button>
+            <p class="form-note">You’ll complete a short captcha before this is sent.</p>
           </form>
         </div>
       </section>

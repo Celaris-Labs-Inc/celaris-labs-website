@@ -272,7 +272,8 @@ h2 {
 }
 
 .partner-form .full,
-.partner-form button {
+.partner-form button,
+.partner-form .form-note {
   grid-column: 1 / -1;
 }
 
@@ -310,6 +311,13 @@ h2 {
   background: var(--cyan);
   color: #05060a;
   outline: none;
+}
+
+.form-note {
+  margin-top: -4px;
+  color: #5d6d88;
+  font-size: 0.78rem;
+  font-weight: 330;
 }
 
 .honey {

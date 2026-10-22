@@ -2,7 +2,7 @@
 
 Static company site for [celarislabs.ai](https://celarislabs.ai).
 
-The partnerships form posts to `hello@celarislabs.ai` via FormSubmit. The first submission sends a confirmation email to that inbox.
+The partnerships form posts to `hello@celarislabs.ai` via FormSubmit, with FormSubmit’s captcha enabled. The first submission sends a confirmation email to that inbox.
 
 ## Local
 
