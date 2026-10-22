@@ -164,6 +164,17 @@ h2 {
   margin-right: 0;
 }
 
+.hero-visual {
+  display: block;
+  width: 100%;
+  max-width: 920px;
+  height: auto;
+  margin: 40px auto 0;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+}
+
 .section {
   padding: 72px 0;
   border-top: 1px solid var(--line);
@@ -382,6 +393,11 @@ footer p + p {
   .hero {
     padding: 56px 0 40px;
     text-align: left;
+  }
+
+  .hero-visual {
+    margin-top: 28px;
+    border-radius: 14px;
   }
 
   .lede {
